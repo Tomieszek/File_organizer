@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">File organizer</string>
+    <string name="app_name">File Organizer</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="Home">Home</string>
+    <string name="Settings">Settings</string>
+    <string name="Contact">Contact</string>
+    <string name="About">About</string>
+    <string name="Logo_Dsc">Logo of the app</string>
+
 </resources>
