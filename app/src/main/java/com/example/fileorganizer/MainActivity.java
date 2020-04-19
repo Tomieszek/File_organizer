@@ -34,6 +34,11 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle( this,drawerLayout,toolbar,R.string.drawer_open,R.string.drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        if (savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment_Home()).commit();
+            navigationView.setCheckedItem(R.id.home_frag);
+        }
     }
 
     @Override
@@ -47,12 +52,34 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
 
     }
 
-
-
-
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return false;
+
+        switch (menuItem.getItemId()) {
+            case R.id.home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment_Home()).commit();
+                break;
+
+            case R.id.setting:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment_Settings()).commit();
+                break;
+
+            case R.id.contact:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment_Contact()).commit();
+                break;
+
+            case R.id.description:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment_Description()).commit();
+                break;
+
+
+
+
+
+
+
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
