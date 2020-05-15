@@ -15,30 +15,26 @@ import androidx.fragment.app.Fragment;
 
 public class Fragment_Contact extends Fragment {
 
-
+    public Button btnCall;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_contact, container, false);
+        //return inflater.inflate(R.layout.fragment_contact, container, false);
+        View v = inflater.inflate(R.layout.fragment_contact, container, false);
 
 
+       final Button btnCall = v.findViewById(R.id.button);
 
-
-
-
-
-
-//       Button btnCall = (Button)findViewById(R.id.btnCall);
-//
-//        btnCall.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Intent.ACTION_DIAL);
-//                intent.setData(Uri.parse("tel:0123456789"));
-//                startActivity(intent);
-//            }
-//        });
+      btnCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+               intent.setData(Uri.parse("tel:"+ btnCall.getText().toString().trim() ));
+               startActivity(intent);
+           }
+       });
+        return v;
     }
 
 
