@@ -8,4 +8,5 @@
     <string name="About">About</string>
     <string name="Logo_Dsc">Logo of the app</string>
     <string name="Placeholder">Placeholder_Placeholder</string>
+    <string name="Phone_number">+48 #########</string>
 </resources>
