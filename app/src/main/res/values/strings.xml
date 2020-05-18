@@ -9,4 +9,8 @@
     <string name="Logo_Dsc">Logo of the app</string>
     <string name="Placeholder">Placeholder_Placeholder</string>
     <string name="Phone_number">+48123456789</string>
+    <string name="Contact_text">In case of any problems, please contact.</string>
+    <string name="About_text">Application was made for academic project for studies named "Programowanie urządzeń mobilnych". Academic Year 2019/2020 4IID Tomasz Ożóg 60045.</string>
+    <string name="Email">Email</string>
+    <string name="ic_logo_wsiiz_description">Logo of higher school which stands \"University of Information Technology and Management in Rzeszow \"</string>
 </resources>

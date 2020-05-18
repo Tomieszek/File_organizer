@@ -2,23 +2,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="#1C5DCA"
     android:layout_height="match_parent">
+
     <TextView
-        android:layout_width="match_parent"
-        android:id="@+id/contact_frag"
-        android:layout_height="match_parent"
-        android:text="@string/Placeholder"
-        android:textSize="50sp"
+
+        android:id="@+id/Contact_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:gravity="center"
-        />
+        android:text="@string/Contact_text"
+        android:textSize="40sp" />
 
     <Button
 
-        android:id="@+id/button"
+        android:id="@+id/button1"
+        android:layout_below="@id/Contact_text"
+        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Phone_number" />
+        android:text="@string/Phone_number"
+        android:drawableStart="@drawable/ic_phone"/>
+
+    <Button
+
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button1"
+        android:layout_alignStart="@+id/button1"
+        android:layout_alignEnd="@+id/button1"
+        android:text="@string/Email"
+        android:drawableStart="@drawable/alternate_emailblack24dp"/>
+
+
 
 
 </RelativeLayout>
