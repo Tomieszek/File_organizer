@@ -13,4 +13,9 @@
     <string name="About_text">Application was made for academic project for studies named "Programowanie urządzeń mobilnych". Academic Year 2019/2020 4IID Tomasz Ożóg 60045.</string>
     <string name="Email">Email</string>
     <string name="ic_logo_wsiiz_description">Logo of higher school which stands \"University of Information Technology and Management in Rzeszow \"</string>
+
+    <string-array name="options">
+        <item>Language</item>
+        <item>Theme</item>
+    </string-array>
 </resources>

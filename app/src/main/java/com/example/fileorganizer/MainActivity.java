@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment_Home()).commit();
             navigationView.setCheckedItem(R.id.home_frag);
         }
+
+
     }
 
     @Override
@@ -60,9 +62,9 @@ public class MainActivity extends AppCompatActivity implements  NavigationView.O
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment_Home()).commit();
                 break;
 
-            case R.id.setting:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment_Settings()).commit();
-                break;
+//            case R.id.setting:
+//                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment_Settings()).commit();
+//                break;
 
             case R.id.contact:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new Fragment_Contact()).commit();
