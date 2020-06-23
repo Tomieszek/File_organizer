@@ -1,2 +1,2 @@
-rootProject.name='File organizer'
 include ':app'
+rootProject.name = "File Organizer"

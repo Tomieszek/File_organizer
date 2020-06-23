@@ -1,21 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">File Organizer</string>
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
-    <string name="Home">Home</string>
-    <string name="Settings">Settings</string>
-    <string name="Contact">Contact</string>
-    <string name="About">About</string>
-    <string name="Logo_Dsc">Logo of the app</string>
-    <string name="Placeholder">Placeholder_Placeholder</string>
-    <string name="Phone_number">+48123456789</string>
-    <string name="Contact_text">In case of any problems, please contact.</string>
-    <string name="About_text">Application was made for academic project for studies named "Programowanie urządzeń mobilnych". Academic Year 2019/2020 4IID Tomasz Ożóg 60045.</string>
-    <string name="Email">Email</string>
-    <string name="ic_logo_wsiiz_description">Logo of higher school which stands \"University of Information Technology and Management in Rzeszow \"</string>
-
-    <string-array name="options">
-        <item>Language</item>
-        <item>Theme</item>
-    </string-array>
+   <string name="app_name">File Organizer</string>
+<!--    <string name="drawer_open">Otwórz</string>-->
+<!--    <string name="drawer_close">Zamknij</string>-->
+<!--    <string name="Home">Ekran główny</string>-->
+<!--    <string name="Settings">Ustawienia</string>-->
+<!--    <string name="Contact">Kontakt</string>-->
+<!--    <string name="About">O aplikacji</string>-->
+<!--    <string name="Logo_Dsc">Logo of the app</string>-->
+<!--    <string name="Placeholder">Placeholder_Placeholder</string>-->
+<!--    <string name="Phone_number">+48123456789</string>-->
+<!--    <string name="Contact_text">W razie problemów z aplikacją proszę o kontakt.</string>-->
+<!--    <string name="About_text">Aplikacja powstała na potrzeby Projektu z przedmiotu "Programowanie urządzeń mobilnych". Rok akademicki 2019/2020 4IID Tomasz Ożóg 60045.</string>-->
+<!--    <string name="Email">Email</string>-->
+<!--    <string name="ic_logo_wsiiz_description">Logo Uczelni \"\"</string>-->
+ <string name="Above_progress_bar_1">Naciśnij przycisk aby posprzątać pamięć</string>
+ <string name="Above_progress_bar_2">Trwa przenoszenie plików </string>
+ <string name="Above_progress_bar_3">Sprzątanie ukończone. Pliki zostały przeniesione</string>
+ <string name="above_choosing_storage">Wybierz część pamięci</string>
+ <string name="choose_folder">Wybierz opcje</string>
+ <string name="no_folder">Bez folderu</string>
+ <string name="download">Download</string>
+ <string name="internal_storage">Internal Storage</string>
+ <string name="sdcard">SDCard</string>
+ <string name="begin">Rozpocznij</string>
+ <string name="warning_radio_first">Wybierz najpierw pierwszą kategorię</string>
+ <string name="choosen1">Wybrano kartę SD</string>
+ <string name="choosen2">Wybrano kartę Pamięć wewnętrzną</string>
 </resources>
