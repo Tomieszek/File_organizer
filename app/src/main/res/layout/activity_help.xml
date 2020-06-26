@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Help">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <TextView
+
+        android:id="@+id/Contact_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Contact_text"
+        android:textSize="24sp"
+        android:layout_above="@id/button1"
+        android:gravity="center"/>
+
+    <Button
+
+        android:id="@+id/button1"
+        android:layout_above="@id/button2"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Phone_number"
+        android:drawableStart="@drawable/ic_phone"/>
+
+    <Button
+
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button1"
+        android:layout_alignEnd="@+id/button1"
+        android:text="@string/Email"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:drawableStart="@drawable/alternate_emailblack24dp"/>
+
+</RelativeLayout>

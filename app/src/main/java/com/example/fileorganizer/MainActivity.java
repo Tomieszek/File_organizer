@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.Manifest;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             RadioButton r1;
             RadioButton r2;
             RadioButton r3;
-             RadioButton r4;
+            RadioButton r4;
             RadioButton r5;
             RadioButton r6;
             RadioButton r7;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        prg=findViewById(R.id.determinateBar);
         Toolbar toolbar =findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mButton = findViewById(R.id.button_send);
@@ -67,6 +69,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         r6=findViewById(R.id.R6);
         r7=findViewById(R.id.R7);
         r7.setOnClickListener(this);
+
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -74,6 +79,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         inflater.inflate(R.menu.menu,menu);
         return true;
 
+    }
+
+    private void setProgressAnimate(ProgressBar pb, int progressTo)
+    {
+        ObjectAnimator animation = ObjectAnimator.ofInt(pb, "progress", pb.getProgress(), progressTo * 100);
+        animation.setDuration(500);
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.start();
+    }
+    private void setProgressMax(ProgressBar pb, int max) {
+        pb.setMax(max * 100);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -99,7 +115,7 @@ private  void listoffiles(String path){
     Log.d("Files", "Path: " + path);
     File directory = new File(path);
     File[] files = directory.listFiles();
-        ArrayList<File> newFiles= new ArrayList<File>();
+        ArrayList<File> newFiles= new ArrayList<>();
         if (files!=null) {
             for (File file : files) {
 
@@ -138,7 +154,7 @@ private String GetCustompath( String Path){
 private String removablepath(){
 
         String removableStoragePath = null;
-        File fileList[] = new File("/storage/").listFiles();
+        File[] fileList = new File("/storage/").listFiles();
         for (File file : fileList)
         { if(!file.getAbsolutePath().equalsIgnoreCase(Environment.getExternalStorageDirectory().getAbsolutePath())&&file.isDirectory()&& file.canRead())
             removableStoragePath = file.getAbsolutePath(); }
@@ -172,9 +188,10 @@ private String removablepath(){
                     out = new FileOutputStream(outputPath+ "/Pictures/" + inputFile);
                     String intest=inputPath + inputFile;
                     String outtest= outputPath+ "/Pictures/" + inputFile;
-                    prg.setProgress(25);
+//                    prg.setProgress(25);
+                    setProgressAnimate(prg,25);
                     if(intest.equals(outtest)) {
-                        Toast. makeText(this,"Folder który próbujesz posprzątać jest jedną z domyślnych lokalizacji przechowywania plików przez program, nie możesz jej posprzątać", Toast. LENGTH_SHORT).show();
+                        Toast. makeText(this,"Folder który próbujesz posprzątać jest jedną z domyślnych lokalizacji przechowywania plików przez program, przypisane do niej pliki pozostaną na miejscu", Toast. LENGTH_SHORT).show();
                     }
                     else{
                         byte[] buffer = new byte[1024];
@@ -192,8 +209,10 @@ private String removablepath(){
 
                         // delete the original file
                         new File(inputPath + inputFile).delete();
+                        setProgressAnimate(prg,50);
+                        tv3.setText(R.string.Above_progress_bar_2);
                     }
-              tv3.setText(R.string.Above_progress_bar_2);
+
                 }
                 break;
 
@@ -216,9 +235,10 @@ private String removablepath(){
                         out = new FileOutputStream( archivesPath + inputFile);
                         String intest=inputPath + inputFile;
                         String outtest= archivesPath + inputFile;
-                        prg.setProgress(25);
+//                        prg.setProgress(25);
+                        setProgressAnimate(prg,25);
                         if(intest.equals(outtest)) {
-                            Toast. makeText(this,"Folder który próbujesz posprzątać jest jedną z domyślnych lokalizacji przechowywania plików przez program, nie możesz jej posprzątać", Toast. LENGTH_SHORT).show();
+                            Toast. makeText(this,"Folder który próbujesz posprzątać jest jedną z domyślnych lokalizacji przechowywania plików przez program, przypisane do niej pliki pozostaną na miejscu", Toast. LENGTH_SHORT).show();
                         }
                         else {
                             byte[] buffer = new byte[1024];
@@ -236,8 +256,10 @@ private String removablepath(){
 
                             // delete the original file
                             new File(inputPath + inputFile).delete();
+                            setProgressAnimate(prg,50);
+                            tv3.setText(R.string.Above_progress_bar_2);
                         }
-                        tv3.setText(R.string.Above_progress_bar_2);
+
                     }break;
 
                 case "mp3":
@@ -258,9 +280,10 @@ private String removablepath(){
                     out = new FileOutputStream( musicPath + inputFile);
                                 String intest=inputPath + inputFile;
                                 String outtest= musicPath + inputFile;
-                                prg.setProgress(25);
+//                                prg.setProgress(25);
+                                setProgressAnimate(prg,25);
                                 if(intest.equals(outtest)) {
-                                    Toast. makeText(this,"Folder który próbujesz posprzątać jest jedną z domyślnych lokalizacji przechowywania plików przez program, nie możesz jej posprzątać", Toast. LENGTH_SHORT).show();
+                                    Toast. makeText(this,"Folder który próbujesz posprzątać jest jedną z domyślnych lokalizacji przechowywania plików przez program, przypisane do niej pliki pozostaną na miejscu", Toast. LENGTH_SHORT).show();
                                 }
                                 else {
                     byte[] buffer = new byte[1024];
@@ -279,8 +302,10 @@ private String removablepath(){
                     // delete the original file
                     new File(inputPath + inputFile).delete();
 
-                    tv3.setText(R.string.Above_progress_bar_2);
-                }}break;
+                                    setProgressAnimate(prg,50);
+                                    tv3.setText(R.string.Above_progress_bar_2);
+                }
+                            }break;
 
                 case "doc":
                 case "docx":
@@ -300,9 +325,10 @@ private String removablepath(){
                     out = new FileOutputStream(documentsPath + inputFile);
                     String intest=inputPath + inputFile;
                     String outtest= documentsPath + inputFile;
-                    prg.setProgress(25);
+//                    prg.setProgress(25);
+                    setProgressAnimate(prg,25);
                     if(intest.equals(outtest)) {
-                        Toast. makeText(this,"Folder który próbujesz posprzątać jest jedną z domyślnych lokalizacji przechowywania plików przez program, nie możesz jej posprzątać", Toast. LENGTH_SHORT).show();
+                        Toast. makeText(this,"Folder który próbujesz posprzątać jest jedną z domyślnych lokalizacji przechowywania plików przez program, przypisane do niej pliki pozostaną na miejscu", Toast. LENGTH_SHORT).show();
                     }
                     else {
                     byte[] buffer = new byte[1024];
@@ -320,7 +346,7 @@ private String removablepath(){
 
                     // delete the original file
                     new File(inputPath + inputFile).delete();
-
+                        setProgressAnimate(prg,50);
                     tv3.setText(R.string.Above_progress_bar_2);
                 }}break;
 
@@ -341,9 +367,10 @@ private String removablepath(){
                     out = new FileOutputStream(moviesPath + inputFile);
                     String intest=inputPath + inputFile;
                     String outtest= moviesPath + inputFile;
-                    prg.setProgress(25);
+//                    prg.setProgress(25);
+                    setProgressAnimate(prg,25);
                     if(intest.equals(outtest)) {
-                        Toast. makeText(this,"Folder który próbujesz posprzątać jest jedną z domyślnych lokalizacji przechowywania plików przez program", Toast. LENGTH_SHORT).show();
+                        Toast. makeText(this,"Folder który próbujesz posprzątać jest jedną z domyślnych lokalizacji przechowywania plików przez program, przypisane do niej pliki pozostaną na miejscu", Toast. LENGTH_SHORT).show();
                     }
                     else {
                         byte[] buffer = new byte[1024];
@@ -363,6 +390,7 @@ private String removablepath(){
                         new File(inputPath + inputFile).delete();
 
                         tv3.setText(R.string.Above_progress_bar_2);
+                        setProgressAnimate(prg,50);
                     }}break;
 
                 default:{
@@ -378,9 +406,10 @@ private String removablepath(){
                     out = new FileOutputStream(defaultpath + inputFile);
                     String intest=inputPath + inputFile;
                     String outtest= defaultpath + inputFile;
-                    prg.setProgress(25);
+//                    prg.setProgress(25);
+                    setProgressAnimate(prg,25);
                     if(intest.equals(outtest)) {
-                        Toast. makeText(this,"Folder który próbujesz posprzątać jest jedną z domyślnych lokalizacji przechowywania plików przez program, nie możesz jej posprzątać", Toast. LENGTH_SHORT).show();
+                        Toast. makeText(this,"Folder który próbujesz posprzątać jest jedną z domyślnych lokalizacji przechowywania plików przez program, przypisane do niej pliki pozostaną na miejscu", Toast. LENGTH_SHORT).show();
                     }
                     else {
                     byte[] buffer = new byte[1024];
@@ -399,12 +428,15 @@ private String removablepath(){
                     // delete the original file
                     new File(inputPath + inputFile).delete();
                         Toast. makeText(this,"Nieobsługiwane pliki zostały przeniesione do folderu'/Default_Folder_File_Organizer/'", Toast. LENGTH_SHORT).show();
+
+                        setProgressAnimate(prg,50);
                 }}
                 break;
 
 
             }
-            prg.setProgress(100);
+//            prg.setProgress(100);
+            setProgressAnimate(prg,100);
             tv3.setText(R.string.Above_progress_bar_3);
         }
 
